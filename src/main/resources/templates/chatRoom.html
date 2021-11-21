@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>chat room</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script type="text/javascript" th:src="@{/display.js}"></script>
+    <style>
+        .header{
+            margin-bottom: 25px;
+            margin-top: 25px;
+            color: #2196F3;
+            font-size: 48px;
+            font-family: "Arial";
+        }
+        .space{
+            margin-bottom: 25px;
+        }
+        body {
+            font-family: Arial;
+            font-size: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        div.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        div.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        div.example button:hover {
+            background: #0b7dda;
+        }
+
+        div.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .border {
+            border-right: 20px;
+        }
+        .input_msg_write input {
+            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            border: medium none;
+            color: #4c4c4c;
+            font-size: 15px;
+            min-height: 48px;
+            width: 100%;
+        }
+
+        .type_msg {border-bottom: 1px solid #c4c4c4;position: relative;}
+        .msg_send_btn {
+            background: #05728f none repeat scroll 0 0;
+            border: medium none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            font-size: 17px;
+            height: 33px;
+            position: absolute;
+            right: 0;
+            top: 11px;
+            width: 33px;
+        }
+    </style>
+</head>
+<body>
+<main role="main" class="container-fluid">
+    <div class="container-fluid" >
+        <div class="row">
+            <h1 class="header"> welcome <span th:text="${username}"></span> </h1>
+        </div>
+        <div class="row">
+            <div class="space col-xs-3 col-sm-3 col-md-4 bg-light border" >
+                                <h2>live chat</h2>
+                                <div id = "listMsg"></div>
+                <form action="addMessage" method="post">
+                    <div class="type_msg">
+                        <div class="input_msg_write">
+                            <input type="text" name="message" class="write_msg" placeholder="Type a message" />
+                            <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </form>
+                <p><span style="color: red" th:text="${error}"></span></p>
+                <form action="logout" method="get" >
+                    <input class="btn-info" type="submit" value="logout">
+                </form>
+            </div>
+            <div class="space container col-xs-3 col-sm-3 col-md-3 bg-light border">
+                <h2>connected users</h2>
+                <div id = "listUsersConnect"></div>
+            </div>
+            <div class="space col-xs-4 col-sm-4 col-md-4 bg-light border">
+        <h2 style="margin-bottom: 10px">Search by users</h2>
+        <div class="example">
+            <input type="text" placeholder="Search.." name="userName" id="userName" style="margin:auto;max-width:500px">
+            <button onclick="searchUser()"><i class="fa fa-search"></i></button>
+                    </div>
+        <div id="listUsers"></div>
+            <div class="space"></div>
+        <h2 style="margin-bottom: 10px">Search by message content </h2>
+                <div class="example">
+                    <input type="text" placeholder="Search.." name="word" id="word" style="margin:auto;max-width:500px">
+                    <button onclick="searchContentMsg()"><i class="fa fa-search"></i></button>
+                </div>
+        <div id = "listMessage">
+            <p><span style="color: red" id="errorListMessage"></span></p>
+        </div>
+        </div>
+    </div>
+    </div>
+</main>
+</body>
+</html>

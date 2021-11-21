@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>readme</title>
+</head>
+<style>
+    div,li{
+        font-size: 20px;
+    }
+</style>
+<body>
+<h1>Internet Course b - Exercise 4</h1>
+<h2>Personal Information of the students:</h2>
+<ul>
+    <div>
+    <li>1) Student Name:Tehila Aviv</li>
+    <li>ID: 211417019</li>
+    <li>tehilaav@edu.hac.ac.il</li>
+    </div>
+    <div>
+        <li>2) Student Name:Sara Eden Elias</li>
+        <li>ID: 211504089</li>
+        <li>gudit1122@gmail.com</li>
+    </div>
+</ul>
+<h2>Explanation of the exercise:</h2>
+<div>In the exercise we implemented 2 pages for the user: a login page and a chat room page - where he can send messages, see the connected users and search for messages by name and content.</div>
+<div>Classes we created:</div>
+<div># Login class - manages the session and is of the bean type. We used it in the other departments to check if a user is logged in or not.</div>
+<div># ControllerRoute - A department responsible for user management, user login and logout.</div>
+<div># DbController class - handles database management, data entry and retrieval of data from the message table and the user table using various queries.</div>
+<div># Error class - is responsible for redirecting the user to an error page in case of an error or if he accesses an incorrect address.</div>
+<div># Message Class - Defines the fields in the database message table as well as the field update functions.</div>
+<div># MessageRepository - Defines the various queries we used to retrieve data from the message table.</div>
+<div># Users class - defines the fields in the database of users as well as the functions for updating the fields.</div>
+<div># UsersRepository class - Defines the various queries we used to retrieve data from the user table.</div>
+<div># Filter class - Used to move the user to a login page in case the user wants to move to another page that is not a login page and he has not logged in before. The handling in this ward is done through the MyConfig ward.</div>
+<div># We also implemented in the file: display.js the functions that json returns to us and are used to print the sent messages, the messages found in the searches and to print the connected usersIn the exercise we implemented 2 pages for the user: a login page and a chat room page - where he can send messages, see the connected users and search for messages by name and content.</div>
+  <h2>Remarks:</h2>
+<ul>
+<li>We implemented in the exercise for each router in the post also a router in the get that will be used by the user if he wants to route the pages himself. The post handles user clicks on the page.</li>
+    <li>It is necessary to delete the session at each re-run.</li>
+</ul>
+<h2>Link to JavaDoc:</h2>
+<a href="index.html" target="_blank"> JavaDoc</a>
+</body>
+</html>
